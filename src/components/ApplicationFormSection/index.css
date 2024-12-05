@@ -1,0 +1,22 @@
+.spots-bottom {
+    width: 490px;
+    height: 490px;
+    border-radius: 490px;
+    opacity: 0.5;
+    background: #dc1f81;
+    filter: blur(277.5px);
+    position: absolute;
+    bottom: -250px;
+}
+
+.spots-right {
+    width: 490px;
+    height: 490px;
+    border-radius: 490px;
+    opacity: 0.5;
+    background: var(--123, linear-gradient(94deg, #7370ff 0%, #dc1f81 100%));
+    filter: blur(277.5px);
+    right: -250px;
+    position: absolute;
+    top: 350px;
+}

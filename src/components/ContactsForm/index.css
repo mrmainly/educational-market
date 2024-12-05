@@ -1,0 +1,10 @@
+.spots-bottom {
+    width: 490px;
+    height: 490px;
+    border-radius: 490px;
+    opacity: 0.5;
+    background: #dc1f81;
+    filter: blur(277.5px);
+    position: absolute;
+    bottom: -250px;
+}

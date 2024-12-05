@@ -1,0 +1,11 @@
+.spots-project-left {
+    width: 612px;
+    height: 612px;
+    border-radius: 612px;
+    opacity: 0.2;
+    background: var(--Primary, #dc1f81);
+    filter: blur(277.5px);
+    position: absolute;
+    top: 600px;
+    left: -200px;
+}

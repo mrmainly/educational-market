@@ -1,0 +1,55 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+h4 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+#root {
+    height: 100%;
+    font-family: Roboto;
+}
+
+* {
+    font-family: "Montserrat" !important;
+}
+
+.slick-slide {
+    margin: 0 10px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.project-top-spots {
+    width: 742px;
+    height: 742px;
+    border-radius: 742px;
+    opacity: 0.4;
+    background: var(--123, linear-gradient(94deg, #7370ff 0%, #dc1f81 100%));
+    filter: blur(393.5px);
+    position: absolute;
+    top: -300px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* the parent */
+/* .slick-list {
+    margin: 0 -20px;
+} */

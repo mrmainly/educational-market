@@ -1,0 +1,12 @@
+.spots-top {
+    width: 742px;
+    height: 742px;
+    border-radius: 742px;
+    opacity: 0.4;
+    background: var(--123, linear-gradient(94deg, #7370ff 0%, #dc1f81 100%));
+    /* filter: blur(393.5px); */
+    position: absolute;
+    top: -600px;
+    transform: translateX(-50%);
+    left: 50%;
+}

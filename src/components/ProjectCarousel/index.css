@@ -1,0 +1,7 @@
+.dots {
+    button::before {
+        font-size: 16px !important;
+        color: #dc1f81 !important;
+        margin-top: 10px;
+    }
+}
