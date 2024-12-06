@@ -65,13 +65,21 @@ export const Header = () => {
                             />
                         </div>
                     ))}
-
-                    <button
-                        className="bg-white py-3 px-6 rounded-[64px] active:scale-90 hover:shadow-[0_6px_32px_0px_rgba(220,12,126,0.35)] transition-all duration-300"
-                        onClick={() => navigate(ROUTES.LOGIN)}
-                    >
-                        <p className="text-black text-lg font-medium">Авторизация</p>
-                    </button>
+                    {localStorage.getItem("token") ? (
+                        <button
+                            className="bg-white py-3 px-6 rounded-[64px] active:scale-90 hover:shadow-[0_6px_32px_0px_rgba(220,12,126,0.35)] transition-all duration-300"
+                            onClick={() => navigate(ROUTES.PROFILE)}
+                        >
+                            <p className="text-black text-lg font-medium">Профиль</p>
+                        </button>
+                    ) : (
+                        <button
+                            className="bg-white py-3 px-6 rounded-[64px] active:scale-90 hover:shadow-[0_6px_32px_0px_rgba(220,12,126,0.35)] transition-all duration-300"
+                            onClick={() => navigate(ROUTES.LOGIN)}
+                        >
+                            <p className="text-black text-lg font-medium">Авторизация</p>
+                        </button>
+                    )}
                 </div>
             </header>
             <header

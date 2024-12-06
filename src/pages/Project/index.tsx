@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { SectionLayout, ProjectList, ContactsForm, Breadcrumb, ApplicationFormSection } from "@/components";
+import { SectionLayout, ProjectList, Breadcrumb } from "@/components";
 import { ROUTES } from "@/constans";
 
 export const ProjectPage = () => {

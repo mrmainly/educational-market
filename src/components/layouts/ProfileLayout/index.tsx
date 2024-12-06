@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { IconButton, Tooltip } from "@material-tailwind/react";
 
-import { MainLayout } from "../MainLayout";
 import { ROUTES } from "@/constans";
 import { SectionLayout } from "@/components/SectionLayout";
 
@@ -24,33 +23,41 @@ export const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
             <SectionLayout>
                 <div className="flex flex-row gap-x-8">
                     <div
-                        className="h-max w-[300px] rounded-[20px] z-10 p-4"
+                        className="h-max w-[400px] rounded-[20px] z-10 p-4 "
                         style={{ background: "rgba(0, 0, 0, 0.25)", border: "1px solid #3A3A3A" }}
                     >
                         <div className="flex flex-col gap-y-4">
                             <div className="flex justify-between items-center">
-                                <div>Имя профиля</div>
+                                <div>{localStorage.getItem("firstName") || "Имя профиля"}</div>
                                 <div>
                                     <Tooltip content="Выход">
-                                        <IconButton size="sm">В</IconButton>
+                                        <IconButton
+                                            size="sm"
+                                            onClick={() => {
+                                                localStorage.removeItem("token");
+                                                navigate(ROUTES.MAIN);
+                                            }}
+                                        >
+                                            <img src="/icon/Logout.svg" />
+                                        </IconButton>
                                     </Tooltip>
                                 </div>
                             </div>
                             <SideBarItem onClick={() => navigate(ROUTES.PROFILE)}>Профиль</SideBarItem>
                             <div className="flex flex-col gap-y-2">
                                 <div className="text-sm">Корзина</div>
-                                <SideBarItem>Мои наборы</SideBarItem>
-                                <SideBarItem>Избранные</SideBarItem>
+                                <SideBarItem onClick={() => navigate(ROUTES.MY_PROJECT)}>Купленные наборы</SideBarItem>
+                                {/* <SideBarItem>Избранные</SideBarItem> */}
                                 <SideBarItem onClick={() => navigate(ROUTES.BASKET)}>Корзина</SideBarItem>
                             </div>
-                            <div className="flex flex-col gap-y-2">
+                            <div className="flex flex-col gap-y-2 opacity-30">
                                 <div className="text-sm">Финансы</div>
                                 <SideBarItem>Способ оплаты</SideBarItem>
                                 <SideBarItem>Реквизиты</SideBarItem>
                             </div>
                         </div>
                     </div>
-                    <div>{children}</div>
+                    <div className="w-full">{children}</div>
                 </div>
             </SectionLayout>
 

@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { api } from "@/services/typicode";
-import { contactsModel } from "@/reducers";
+import { contactsModel, projectModel } from "@/reducers";
 
 export const store = configureStore({
     reducer: {
         contacts: contactsModel.reducer,
+        project: projectModel.reducer,
 
         //api
         [api.reducerPath]: api.reducer,

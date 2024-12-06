@@ -13,6 +13,8 @@ import { LoginPage } from "./Login";
 import { RegistrationPage } from "./Registration";
 import { ProfilePage } from "./Profile";
 import { BasketPage } from "./Basket";
+import { MyProjectPage } from "./MyProject";
+import { MyProjectDetailPage } from "./MyProject/MyProjectDetail";
 
 export const Routing = () => {
     const location = useLocation();
@@ -33,6 +35,8 @@ export const Routing = () => {
                 <Route element={<ProgramPage />} path={ROUTES.PROGRAMS} />
                 <Route element={<ProfilePage />} path={ROUTES.PROFILE} />
                 <Route element={<BasketPage />} path={ROUTES.BASKET} />
+                <Route element={<MyProjectPage />} path={ROUTES.MY_PROJECT} />
+                <Route element={<MyProjectDetailPage />} path={ROUTES.MY_PROJECT + "/:id"} />
             </Route>
         </Routes>
     );

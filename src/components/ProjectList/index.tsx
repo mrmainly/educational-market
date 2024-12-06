@@ -5,24 +5,12 @@ import { Pagination } from "../Pagination";
 import { ProjectCard } from "../ProjectCard";
 import { ProjectCardSkeleton } from "../ProjectCardSkeleton";
 
-export const ProjectList = ({ type }: { type?: "stock" | "base" }) => {
+import { projectList } from "@/mocks";
+
+export const ProjectList = ({ type }: { type?: "stock" | "base" | "basket" }) => {
     const [page, setPage] = useState(1);
 
     const { data, isLoading, isFetching } = useGetProjectQuery({ page: page, pageSize: 8 });
-
-    // if (isLoading) {
-    //     return (
-    //         <div className="grid sm:grid-cols-2 grid-cols-1 md:gap-5 gap-4">
-    //             <div className="animate-pulse bg-gray-600 md:h-[400px] h-[280px] rounded-[12px]" />
-    //             <div className="animate-pulse bg-gray-600 md:h-[400px] h-[280px] rounded-[12px]" />
-    //             <div className="animate-pulse bg-gray-600 md:h-[400px] h-[280px] rounded-[12px]" />
-    //             <div className="animate-pulse bg-gray-600 md:h-[400px] h-[280px] rounded-[12px]" />
-    //             <div className="animate-pulse bg-gray-600 md:h-[400px] h-[280px] rounded-[12px]" />
-    //             <div className="animate-pulse bg-gray-600 md:h-[400px] h-[280px] rounded-[12px]" />
-    //             <div className="animate-pulse bg-gray-600 md:h-[400px] h-[280px] rounded-[12px]" />
-    //         </div>
-    //     );
-    // }
 
     return (
         <div className="flex flex-col gap-y-10 mb-20">
@@ -34,12 +22,25 @@ export const ProjectList = ({ type }: { type?: "stock" | "base" }) => {
                         <ProjectCardSkeleton />
                         <ProjectCardSkeleton />
                     </>
+                ) : type !== "basket" ? (
+                    projectList
+                        .filter((item) => item.type === type)
+                        .map((item, index) => (
+                            <ProjectCard
+                                key={index}
+                                title={item.title}
+                                shortDescription={item?.shortDesc}
+                                image={item?.image}
+                                id={item?.id}
+                                // status={status}
+                            />
+                        ))
                 ) : (
-                    data?.results.map((item, index) => (
+                    projectList.map((item, index) => (
                         <ProjectCard
                             key={index}
-                            title={item?.name}
-                            shortDescription={item?.short_description}
+                            title={item.title}
+                            shortDescription={item?.shortDesc}
                             image={item?.image}
                             id={item?.id}
                             // status={status}
@@ -47,7 +48,7 @@ export const ProjectList = ({ type }: { type?: "stock" | "base" }) => {
                     ))
                 )}
             </div>
-            <Pagination count={data?.count} page={page} setPage={setPage} pageSize={8} />
+            {/* <Pagination count={data?.count} page={page} setPage={setPage} pageSize={8} /> */}
         </div>
     );
 };

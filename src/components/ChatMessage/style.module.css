@@ -1,0 +1,41 @@
+.inmessage {
+    background: #fff;
+    max-width: 90%;
+    width: fit-content;
+    padding: 16px;
+    border-radius: 12px 12px 12px 0;
+    position: relative;
+    margin-left: 6px;
+    white-space: pre-wrap;
+}
+.inmessage::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -6px;
+    bottom: 0;
+    border-right: 6px solid #fff;
+    border-top: 6px solid transparent;
+}
+
+.onmessage {
+    white-space: pre-wrap;
+    background: #fff;
+    max-width: 90%;
+    width: fit-content;
+    padding: 16px;
+    border-radius: 12px 12px 0 12px;
+    position: relative;
+    margin-right: 6px;
+}
+.onmessage::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: -6px;
+    bottom: 0;
+    border-left: 6px solid #fff;
+    border-top: 6px solid transparent;
+}

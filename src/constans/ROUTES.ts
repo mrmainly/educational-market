@@ -7,4 +7,5 @@ export const ROUTES = {
     REGISTRATION: "/registration",
     PROFILE: "/profile",
     BASKET: "/basket",
+    MY_PROJECT: "/my_project",
 };

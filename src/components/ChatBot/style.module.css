@@ -1,0 +1,97 @@
+.chat {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    color: #000;
+    position: relative;
+}
+.chatInputTextarea {
+    color: #000;
+    background: #fff;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.25em;
+    resize: none;
+    margin: auto;
+    overflow: hidden;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.dropContainer {
+    cursor: pointer;
+}
+.box {
+    overflow-y: scroll;
+    flex: 1;
+    max-height: calc(100svh - 110px);
+}
+.box::-webkit-scrollbar {
+    width: 7px;
+    background-color: transparent;
+    margin-left: 3px;
+}
+.box::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #30386b;
+}
+.chtform {
+    padding: 12px 16px;
+    background: #fff;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+}
+.cross {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    & svg {
+        transform: translate(0%) rotate(135deg);
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+.processing {
+    color: #fff;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 20px;
+}
+.processing:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis steps(4, end) 1100ms infinite;
+    animation: ellipsis steps(4, end) 1100ms infinite;
+    content: "...";
+    width: 0px;
+}
+@media (min-width: 1024px) {
+    .chtform {
+        border-radius: 6px;
+        margin-bottom: 16px;
+        width: 100%;
+    }
+}
+
+@keyframes ellipsis {
+    to {
+        width: 1.25em;
+    }
+}
+
+@-webkit-keyframes ellipsis {
+    to {
+        width: 1.25em;
+    }
+}

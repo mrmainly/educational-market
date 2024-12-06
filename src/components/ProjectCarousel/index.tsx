@@ -1,11 +1,10 @@
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 
-import { useGetProjectQuery } from "@/services/projectService";
 import { ProjectCard } from "../ProjectCard";
 import { Title } from "../Title";
-import { contactsSelectors } from "@/reducers";
+
+import { projectList } from "@/mocks";
 import { ROUTES } from "@/constans";
 
 import "./index.css";
@@ -28,14 +27,12 @@ function SamplePrevArrow(props: any) {
     );
 }
 
-export const ProjectCarousel = ({ type, name }: { type?: string; name?: string }) => {
+export const ProjectCarousel = ({ type, name }: { type?: "base" | "stock"; name?: string }) => {
     const navigate = useNavigate();
-
-    const { data, isLoading } = useGetProjectQuery({ pageSize: 5, page: 1 });
 
     const settings = {
         //@ts-ignore
-        infinite: data?.results?.length > 3 ? true : false,
+        // infinite: data?.results?.length > 3 ? true : false,
         slidesToShow: 1,
         slidesToScroll: 1,
         swipeToSlide: true,
@@ -48,14 +45,6 @@ export const ProjectCarousel = ({ type, name }: { type?: string; name?: string }
         // autoplaySpeed: 2000,
         // autoplay: true,
     };
-
-    if (isLoading) {
-        return <>loading...</>;
-    }
-
-    if (data?.results?.length === 0 || data?.results === undefined) {
-        return <></>;
-    }
 
     return (
         <div className="flex flex-col md:gap-y-10 gap-y-6">
@@ -98,18 +87,20 @@ export const ProjectCarousel = ({ type, name }: { type?: string; name?: string }
             </div>
 
             <Slider {...settings}>
-                {data?.results.map((item, index) => (
-                    <div key={index}>
-                        <div className="lg:w-[630px] w-[310px]">
-                            <ProjectCard
-                                title={item.name}
-                                shortDescription={item.short_description}
-                                image={item.image}
-                                id={item.id}
-                            />
+                {projectList
+                    .filter((item) => item.type === type)
+                    .map((item, index) => (
+                        <div key={index}>
+                            <div className="lg:w-[630px] w-[310px]">
+                                <ProjectCard
+                                    title={item.title}
+                                    shortDescription={item.shortDesc}
+                                    image={item.image}
+                                    id={item.id}
+                                />
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
             </Slider>
         </div>
     );
